@@ -1,7 +1,9 @@
 package com.blog.backend.dto.request;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -14,15 +16,21 @@ import lombok.Setter;
 public class UsuarioRequestDTO {
 
 	@NotNull
-	@Size(min = 2, message = "EL campo nombre debe contener al menos 2 caracteres")
+	@NotEmpty(message = "EL campo nombre no puede estar vacio")
+	@Size(min = 2 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
 	private String nombre;
 	
 	@NotNull
-	@Size(min = 2, message = "EL campo apellido debe contener al menos 2 caracteres")
+	@NotEmpty(message = "EL campo nombre no puede estar vacio")
+	@Size(min = 2 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
 	private String apellido;
 	
 	@NotNull
-	@Size(min = 5, message = "EL campo username debe contener al menos 5 caracteres")
+	@NotEmpty(message = "EL campo nombre no puede estar vacio")
+	@Size(min = 2 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
 	private String username;
 	
 	@NotNull(message = "El campo email no puede estar vacio")
@@ -30,7 +38,9 @@ public class UsuarioRequestDTO {
 	private String email;
 	
 	@NotNull
-	@Size(min = 4, message = "EL campo password debe contener al menos 5 caracteres")
+	@NotEmpty(message = "EL campo nombre no puede estar vacio")
+	@Size(min = 5 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
+	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
 	private String password;
 
 }
