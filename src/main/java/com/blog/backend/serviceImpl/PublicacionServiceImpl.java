@@ -110,7 +110,7 @@ public class PublicacionServiceImpl implements PublicacionService {
 	}
 
 	@Override
-	public PublicacionResponseDTO crearPublicacion(long usuarioId,PublicacionRequestDTO publicacionDTO,List<MultipartFile> file) {
+	public PublicacionResponseDTO crearPublicacion(long usuarioId,PublicacionRequestDTO publicacionDTO,List<MultipartFile> file){
 		
 		Usuario usuario = usuarioRepositorio.findById(usuarioId).orElseThrow(()-> new ResourceNotFoundException("Usuario", "id", usuarioId));
 				
@@ -150,7 +150,7 @@ public class PublicacionServiceImpl implements PublicacionService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
-			throw new BlogAppException(HttpStatus.BAD_REQUEST, "Hubo un error al crear la publicacion");
+			throw new BlogAppException(HttpStatus.BAD_REQUEST, "Hubo un error al crear la publicacion" + e.getMessage());
 		}
 			
 	}

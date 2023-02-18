@@ -2,6 +2,8 @@ package com.blog.backend.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +35,7 @@ public class TagController {
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@PostMapping
-	public ResponseEntity<TagDTO> crearTag(@RequestBody TagDTO tagDTO){
+	public ResponseEntity<TagDTO> crearTag(@Valid @RequestBody TagDTO tagDTO){
 		TagDTO tag = tagService.crearHashtag(tagDTO);
 		return new ResponseEntity<>(tag,HttpStatus.CREATED);
 	}

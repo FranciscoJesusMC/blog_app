@@ -26,7 +26,6 @@ import com.blog.backend.dto.response.PublicacionResponseDTO;
 import com.blog.backend.service.PublicacionService;
 import com.blog.backend.utils.Paginacion;
 
-import io.swagger.annotations.ApiParam;
 
 @RestController
 @RequestMapping("/api")
@@ -64,7 +63,7 @@ public class PublicacionController {
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@PostMapping(value = {"/usuario/{usuarioId}/nuevaPublicacion"},consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-	public ResponseEntity<PublicacionResponseDTO> crearPublicacion(@PathVariable(name = "usuarioId")long usuarioId,@Valid @ModelAttribute  PublicacionRequestDTO publicacionDTO, @ApiParam(value = "List of files", required = false) @RequestParam("file") List<MultipartFile> file){
+	public ResponseEntity<PublicacionResponseDTO> crearPublicacion(@PathVariable(name = "usuarioId")long usuarioId, @Valid @ModelAttribute PublicacionRequestDTO publicacionDTO, @RequestParam("file") List<MultipartFile> file){
 		PublicacionResponseDTO publicacion = publicacionService.crearPublicacion(usuarioId,publicacionDTO,file);
 		return new ResponseEntity<>(publicacion,HttpStatus.CREATED);
 	}

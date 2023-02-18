@@ -24,13 +24,13 @@ public class UsuarioRequestDTO {
 	@NotNull
 	@NotEmpty(message = "EL campo nombre no puede estar vacio")
 	@Size(min = 2 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
-	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
+	@Pattern(regexp = "^[a-zA-Z ]+$",message = "Solo esta permitido ingresar letras")
 	private String apellido;
 	
 	@NotNull
 	@NotEmpty(message = "EL campo nombre no puede estar vacio")
 	@Size(min = 2 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
-	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
+	@Pattern(regexp = "^[a-zA-Z0-9]+$",message = "Solo esta permitido ingresar letras y numeros, sin espacios en blanco")
 	private String username;
 	
 	@NotNull(message = "El campo email no puede estar vacio")
@@ -40,7 +40,7 @@ public class UsuarioRequestDTO {
 	@NotNull
 	@NotEmpty(message = "EL campo nombre no puede estar vacio")
 	@Size(min = 5 , max = 30,message = "El nombre debe tener un minimo de 2 caracteres y un maximo de 30")
-	@Pattern(regexp = "^[a-zA-Z]+$",message = "Solo esta permitido ingresar letras")
+	@Pattern(regexp = "^[a-zA-Z0-9]+$",message = "Solo esta permitido ingresar letras y numeros, sin espacios en blanco")
 	private String password;
 
 }

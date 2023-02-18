@@ -1,5 +1,6 @@
 package com.blog.backend.controller;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,5 @@ public class AuthController {
 		return ResponseEntity.ok(new JwtResponse(token));
 	
 	}
-
+	
 }
